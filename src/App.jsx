@@ -2,6 +2,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import GlobalStyles from "./styles/global"
 import Home from "./pages/Home"
 import CadastrarDenuncia from "./pages/services/services"
+import Forum from "./pages/Forum/forum"
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
        <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/cadastro' element={<CadastrarDenuncia/>}/>
-        <Route path='*' element={<h1>Not Found</h1>}/>
+        <Route path='/forum' element={<Forum/>}/>
        </Routes>
     </BrowserRouter>
   )

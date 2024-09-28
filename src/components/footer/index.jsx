@@ -1,4 +1,4 @@
-import VotoValido from '../VotoValido';
+// import VotoValido from '../VotoValido';
 import { FooterContent } from './style';
 
 export default function Footer() {

@@ -1,17 +1,20 @@
-import { useEffect } from 'react';  
+import { useEffect, useState } from 'react';  
 import { HeaderContent, Nav } from './style';
 import logoCompleto from '../../assets/voto_completo.png';
 import logo from '../../assets/voto1.png';
-import { animateText } from './rolling'; // Importe a função de animação
-
-
-
+import { animateText } from './rolling'; 
+import MenuHamburguer from '../MenuHamburguer/Menu'; 
 
 const HeaderAndNav = () => {
+  const [isOpen, setIsOpen] = useState(false); // Estado para controlar a visibilidade do menu
+
   useEffect(() => {
     animateText(); // Chama a função de animação
-     // Configura o menu hamburguer
   }, []);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen); // Alterna o estado da sidebar
+  };
 
   return (
     <>
@@ -33,19 +36,24 @@ const HeaderAndNav = () => {
         <div className='logoVotoValido'>
           <img src={logo} alt="" />
         </div>
-        <button className="hamburguer"></button>
+        <button className="hamburguer" onClick={toggleSidebar}>
+          {/* Aqui você pode incluir ícones de hamburguer ou texto, se desejar */}
+        </button>
         <ul className="nav-list">
           <li><a href="/" className="nav-link">Inicio</a></li>
-          <li><a href="*" className="nav-link">Cadastro</a></li>
-          <li><a href="*" className="nav-link">Forum</a></li>
+          <li><a href="/cadastro" className="nav-link">Cadastro</a></li>
+          <li><a href="/forum" className="nav-link">Forum</a></li>
           <li><a href="*" className="nav-link">Sobre</a></li>
         </ul>
         <div className="box-nav-contact">
           <a href="" className="nav-contact">Contato</a>
         </div>
       </Nav>
+
+      {/* Menu (Sidebar) Component */}
+      <MenuHamburguer isOpen={isOpen} toggleSidebar={toggleSidebar} />
     </>
   );
 };
 
-export default HeaderAndNav; 
+export default HeaderAndNav;

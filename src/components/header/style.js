@@ -66,7 +66,8 @@ const Nav = styled.nav`
     all: unset; /* Remove todos os estilos herdados */
     box-sizing: border-box;
   }
-
+  
+  
   width: 100%;
   height: 50px;
   display: flex;
@@ -114,25 +115,11 @@ const Nav = styled.nav`
   .hamburguer {
     display: none;
     border: none;
-    background: none;
     cursor: pointer;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 20px;
-    width: 30px;
-    z-index: 2;
-
-    span {
-      display: block;
-      width: 100%;
-      height: 3px;
-      background: ${colors.blueLogo};
-      transition: 0.3s;
-    }
 
     /* Media query para o botão hamburguer em telas menores */
     @media (max-width: 949px) {
-      display: flex;
+      display: block;
       position: absolute;
       top: 26px;
       right: 10px;
@@ -144,6 +131,16 @@ const Nav = styled.nav`
     .nav-contact {
       display: none !important;
     }
+      .nav-list{
+       display:none
+      }
+
+      .logoVotoValido{
+       img {
+          width:50px;
+          margin-left: 10px;
+       }
+      }
   }
 
   .nav-contact {
@@ -177,25 +174,48 @@ const Nav = styled.nav`
       transition: width 0.5s ease-in-out;
     }
   }
+   
+   
+           //Media Query Nav ////
 
   /* Media query para telas entre 950px e 1100px */
   @media (max-width: 1100px) and (min-width: 950px) {
     img {
-      width: 50px; /* Reduz o tamanho da imagem no nav */
+      width: 50px; 
     }
 
     .nav-list li a {
-      font-size: 0.9rem; /* Diminui o tamanho da fonte */
+      font-size: 0.9rem; 
     }
 
     .nav-contact {
-      padding: 0.3rem 0.8rem; /* Ajusta o tamanho do botão de contato */
-      font-size: 0.9rem; /* Diminui o tamanho da fonte do botão */
+      padding: 0.3rem 0.8rem; 
+      font-size: 0.9rem; 
     }
     .nav-list {
       margin-left: 10px;
     }
-  }
+ }
+
+    @media only screen and (max-width: 480px) {
+    .logoVotoValido{
+      img {
+            width: 45px; 
+            margin-left: 15px;     
+     }    
+   }
+}
+    
+   /* Ajustes para smartphones menores */
+    @media only screen and (max-width: 375px) {
+     .logoVotoValido{
+          img {
+            width: 37px; /* Reduz o tamanho da imagem no nav */
+            margin-left: 5px;     
+             }       
+        }
+   }
+          
 `;
 
 export { HeaderContent, Nav };
